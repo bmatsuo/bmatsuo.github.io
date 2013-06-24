@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+# The github gem set. Additional runtime gems cannot be used.
 gem 'jekyll',     '=1.0.3'
 gem 'liquid',     '=2.5.0'
 gem 'redcarpet',  '=2.2.2'
