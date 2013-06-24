@@ -18,12 +18,19 @@
     </head>
     <body>
 
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="/"><strong>{{ site.name }}</strong></a>
+                    <ul class="nav pull-right">
+                        <li><a href="#"><strong>Bryan matsuo</strong></a></li>
+                        <li><a href="http://github.com/bmatsuo/">on github.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="site">
-                <div class="header">
-                    <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-                    <a class="extra" href="/">home</a>
-                </div>
 
                 {{ content }}
 
@@ -31,6 +38,7 @@
                     <div class="contact">
                         <p>
                         Bryan Matsuo<br />
+                        User
                         </p>
                     </div>
                     <div class="contact">
