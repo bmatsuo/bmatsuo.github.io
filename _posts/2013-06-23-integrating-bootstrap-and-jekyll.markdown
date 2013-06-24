@@ -43,7 +43,7 @@ Edit `_layouts/default.html` and include bootstrap files
               <a class="extra" href="/">home</a>
           </div>
 
-                {{ content }}
+                {% assign content = '{{ content }}' %}{{ content }}
 
             <div class="footer">
               <div class="contact">
