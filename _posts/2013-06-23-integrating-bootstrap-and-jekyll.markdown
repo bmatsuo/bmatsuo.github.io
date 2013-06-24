@@ -1,3 +1,21 @@
+---
+layout: post
+title:  "Integrating bootstrap with jekyll"
+date:   2013-06-23 16:51:13
+categories: jekyll update
+---
+
+Download bootstrap, unzip it and distribute the files within the bootstrap hierarchy
+
+{% highlight bash %}
+wget http://twitter.github.io/bootstrap/assets/bootstrap.zip
+unzip bootstrap.zip
+rm bootstrap.zip
+{% endhighlight %}
+
+Edit `_layouts/default.html` and include bootstrap files
+
+{% highlight html %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -46,3 +64,4 @@
         <script src="/bootstrap/js/bootstrap.js"></script>
     </body>
 </html>
+{% endhighlight %}
