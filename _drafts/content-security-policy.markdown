@@ -20,31 +20,20 @@ compromising your site's security.
 
 ##Enter Content Security Policy
 
-Content Security Policy (CSP) is a W3C Candidate Recommendation allows enforcing
-granular restrictions on page content. It defines inclusive lists of directives.
-Most directives allow loading a particular kind of resource from specified
-locations. Although there is a directive of applies global content
-restrictions.
+Content Security Policy (CSP) 1.0 is a W3C
+[Candidate Recommendation](http://www.w3.org/TR/CSP/). It allows enforcing
+granular restrictions on page content. It defines lists of directives.
+Directives restrict loading a of resources to trusted locations, 
+certain javascript APIs, and form usage.
 
-###Source declaration
-
-Source lists are a space separated list of schemes/hosts. They specify the set
-of locations associated resources are permitted to be loaded from. There are
-several special values in source lists. A lone `'none'` means that this type
-of resource cannot be loaded. The value `'self'` allows resources orginating
-from the same domain can be loaded.
-
-###Global content restriction
-
-The `sandbox` directive is meant to place global content restrictions on the
-protected resource. This is similar to iframe sandboxing (citation?). Among
-other things it controls `window.top.location` hijacking.
+CSPs are strict and require obedience to claim compliance with the standard.
+This gives a powerful tool for controling the content on a page.
 
 ##Important directives
 
 The most important directive is `default-src`. It is used to place a general
 policy on external connections. Appropriate usage of CSP seems to be to place
-a fairly restrictive `defailt-src` directive on resources and override
+a fairly restrictive `default-src` directive on resources and override
 specific directives as necessary.
 
 ###XSS directives
@@ -87,8 +76,12 @@ standard cross browser support will improve by the next iteration of IE. That's
 a shitty metric. But I trust Mozilla to have their act together and no one gives
 a fuck about Safari.
 
-##Conclusion
+##Conclusions
 
 As the standard gets adopted, CSP should become a web standard tool in all web
 developer's toolchests. Proper HTML entity escaping is necessary, but CSP
 completely blocks anything that manages to sneak through.
+
+It's not completely clear to me how an large/enterprise level company would
+manage CSP effectively. Utilizing new SAAS vendors requrise whitelisting.
+Deployments would need more coordination and would slow things down accordingly.
