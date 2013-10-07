@@ -140,13 +140,15 @@ task :new  do
     end
 end
 
-task :serve
+desc 'compile and serve the blog'
 task :serve do
     sh "bundle exec jekyll serve"
 end
 
 desc 'compile and serve the blog'
 namespace :serve do
+
+    desc 'compile and serve the blog (including drafts)'
     task :drafts do
       sh "bundle exec jekyll serve --drafts"
     end
