@@ -145,6 +145,14 @@ task :serve do
     sh "bundle exec jekyll serve"
 end
 
+desc 'compile and serve the blog'
+namespace :serve do
+    task :drafts do
+      sh "bundle exec jekyll serve --drafts"
+    end
+end
+
+
 task :bundle
 task :bundle do
     sh "bundle > /dev/null"
