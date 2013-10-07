@@ -164,6 +164,7 @@ module JekyllTask
 
     class Post
         POST_DIR = "_posts"
+        DRAFT_DIR = "_drafts"
 
         attr_reader :created, :title, :content_type
 
@@ -171,14 +172,6 @@ module JekyllTask
             @created = Time.now
             @title = title.to_s
             @content_type = (content_type || 'markdown').downcase
-        end
-
-        def filename
-            Post.filename(@created, @title, @content_type)
-        end
-
-        def default_content
-            Post.default_content(@created, @title, @content_type)
         end
 
         def self.select(options = {})
@@ -204,7 +197,7 @@ module JekyllTask
             name.match(/^()-(.*).([^.])$/)
         end
 
-        def self.filename(created, title, content_type)
+        def filename(draft = true)
             date = created.to_date.to_s
 
             normal = title.dup
@@ -213,14 +206,19 @@ module JekyllTask
             normal.gsub!(/-+$/, '')
             normal.downcase!
 
-            "_posts/#{date}-#{normal}.#{content_type}"
+            if draft
+                "#{DRAFT_DIR}/#{normal}.#{content_type}"
+            else
+                "#{POST_DIR}/#{date}-#{normal}.#{content_type}"
+            end
         end
 
-        def self.default_content(created, title, content_type)
+        def default_content
+            title_esc = @title.gsub(/["\\]/) { |c| "\\" + c }
             content =  "---\n"
             content << "layout: post\n"
-            content << "title:  \"#{title.gsub(/(["\\])/) do |c| "\\" + c end}\"\n"
-            content << "date:   #{created}\n"
+            content << "title: \"#{title_esc}\"\n"
+            content << "date: #{@created}\n" if @created
             content << "categories:\n"
             content << "---\n"
         end
