@@ -2,8 +2,12 @@
 layout: post
 title:  "Integrating bootstrap with jekyll"
 date:   2013-06-23 16:51:13
-categories: jekyll update
+categories: jekyll bootstrap
 ---
+
+**NOTE**: this tutorial uses Bootstrap 2 and is deprecated with the release of
+Bootstrap 3. I will be switching this blog to Bootstrap 3 shortly and will update
+this post.
 
 Download bootstrap, unzip it and distribute the files within the bootstrap hierarchy
 
