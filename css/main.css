@@ -50,8 +50,8 @@ ul.posts li {
 
 ul.posts span {
   color: #aaa;
-  font-family: Monaco, "Courier New", monospace;
-  font-size: 80%;
+  /* font-family: Monaco, "Courier New", monospace; */
+  font-size: 90%;
 }
 
 /*****************************************************************************/
@@ -64,7 +64,7 @@ ul.posts span {
   font-size: 115%;
   text-align: justify;
   width: 42em;
-  margin: 3em auto 2em;
+  margin: 0em auto 2em;
   line-height: 1.5em;
 }
 
