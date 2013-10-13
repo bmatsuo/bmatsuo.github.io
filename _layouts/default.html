@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- bootstrap -->
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/readable/bootstrap.min.css">
 
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
@@ -17,21 +17,26 @@
 
     </head>
     <body>
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="navbar-header">
-                <ul class="nav navbar-nav pull-right">
-                    <li><a href="http://bmats.co"><strong>Bryan Matsuo</strong></a></li>
-                    <li><a href="http://github.com/bmatsuo/">on github.com</a></li>
-                </ul>
-                <a class="navbar-brand" href="/">{{ site.name }}</a>
-            </div>
-        </nav>
         <div class="container">
+
             <div class="site">
+                <div class="header row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <strong><a href="/">{{ site.name }}</a></strong>
+                    </div>
+                    <div class="class-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <ul class="list-inline pull-right">
+                            <li><a href="http://bmats.co">Bryan Matsuo</a></li>
+                            <li><a href="http://github.com/bmatsuo/">on github.com</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-                {{ content }}
+                <div class="row">
+                    {{ content }}
+                </div>
 
-                <div class="footer">
+                <div class="footer row">
                     <div class="contact">
                         <p>
                         Bryan Matsuo<br/>
