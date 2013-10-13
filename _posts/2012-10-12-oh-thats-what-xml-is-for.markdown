@@ -149,11 +149,14 @@ with XML, it's quite possible that I would opt for Scala again.
 
 ##Conclusion
 
-Learning about XML and related technologies has been much more rewarding I
-thought initially. I'm not exactly ready to claim that there will be a resurgence
-of XML in the future. But, I have certainly seen situations in which I feel it's
-superior to JSON. I will continue to look for more goodies in the future.
+Learning about XML and related technologies has been much more rewarding than I
+thought it would be initially. I'm not exactly ready to claim that there will be a
+resurgence of XML in the future. But, I have certainly seen situations in which I
+feel it's superior to JSON. People should stop thinking it's the root of all evil.
 
-Well, that's all the XML evangelism for now folk. But I'll see you
+I will continue to look for more XML goodies in the future. But, that's all the XML
+evangelism for now.
 
-    <next-time rocket:time="same" rocket:channel="same"/>
+    <next-time rocket:time="same" rocket:channel="same">
+        <see person="you"/>
+    </next-time>
