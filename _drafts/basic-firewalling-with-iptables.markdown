@@ -92,3 +92,7 @@ although the content seems perfectly applicable to outgoing connections.
 Securing outgoing connections can go a long way to stoping attacks if
 malicious code does ever get executed on my machines. But I'm not sure
 if this would be too cumbersome for normal operation.
+
+The Ubuntu documentation did not give any motivation for down rules. I want
+to look into this and discover if there are reasons to provide rules when the
+system shuts down.
