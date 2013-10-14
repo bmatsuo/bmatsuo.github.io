@@ -14,25 +14,23 @@ whatever that means). But I want to start doing real stuff with it. This
 generally means running a couple other services such as a database deamon,
 redis-server/memcached, etcd, etc (cannot...resist...).
 
-I figure that the easiest thing I can do to secure the machine is to set
-up a restrictive firewall. If I do this I can be less strict about securing
-communication between components contained entirely within the machine. If/When
-the time comes to split some of these service components on to separate logical
-machines I will deal with securing the communication of these services on a case
-by case basis.
+I figure that the most pragmatic to secure the machine is to set up a
+restrictive firewall. If I do this I can be less strict about securing
+communication between components contained entirely within the machine. I can
+deal with securing this communication if/when I need to move service components
+off of the web server itself.
 
-As far as I am aware, the standard way to set up a firewall on a Linux machine
-is through *iptables*. The `iptables` command configures the Linux kernel's
-(IPv4) packet filter [1][]. So I will begin my quest of practical internet
-security there.
+As far as I am aware *iptables* is the standard way to set up a firewall on a
+Linux machine. The `iptables` command configures the Linux kernel's (IPv4)
+packet filter [1][]. I will begin my quest of practical internet security there.
 
 ##iptables wtf
 
 I am coming from a space of sheer ignorance. I've never used firewalls on home
 machines. I used to play a lot of games and I found it a big annoyance. Since
 then I've built up a disipline of safe computer use, minimizing exposure to
-potential harmful situtations. Still, this is a dumb excuse and really I've
-playing it dangerously been unsafe for a long time. This needs to be fixed.
+potentially harmful situtations. Still, this is a dumb excuse and really I've
+playing it dangerously for a long time. This needs to be fixed.
 
 The first thing I did to learn about iptables was google "sercuring a box with
 iptables", leading me to a Server Fault [discussion][2]. Oh, fuck, what am I
@@ -60,26 +58,28 @@ of shit that I can't tell whether I need or not.
 Wtf does that mean?
 
 Clearly, I need to learn more of the basics about using iptables.
-Cargo culting this would be a huge mistake. Also, with questions about whether
-or not I am going to lock myself out of my web server, I need to start on a
-virtual machine that I can easily blow away.
+Cargo culting this would be a huge mistake; I'm trying to make things more
+secure here. And I need to understand whatever solution I implement. Also, with
+questions about whether or not I am going to lock myself out of my web server,
+I decided I need to start on a virtual machine that I can easily blow away.
 
 Anyway, I googled "iptables basic setup" and found an Ubuntu community
 documentation [help page][3] that looks right up my alley.
 
 ##Up and running
 
-The Ubuntu documentation was pretty much exactly what I need. An iptables
+The Ubuntu documentation was pretty much exactly what I wanted. An iptables
 config that restricts all incoming connections except for HTTP(S) and SSH.
 And, it gave me all the tools I need to procede using iptables seriously.
-I'm pretty sure that I won't lock myself out of my box.
+I'm pretty sure that I won't lock myself out of my box now.
 
 For the record I went with solution #2 for persisting the iptables config
 across machine reboots. I imagine the Ubuntu package from solution #3 does
 basically the same thing. But I like the transparancy of #2.
 
 As far as ssh access goes. I am allowing it because it is already fairly
-secured through public/private key authentication.
+secured through public/private key authentication and secure passwords.
+Furthermore, I don't have reliable static IP addresses from which to restrict.
 
 I still haven't deciphered everything from the Server Fault article. But it
 seems that I don't need it for now. I can pick these things up as they become
