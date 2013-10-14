@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Firewalling with iptables or a dalliance with Docker"
+title: "Firewalling with iptables"
 date: 2013-10-13 14:53:19 -0700
 categories: linux security
 ---
@@ -62,9 +62,33 @@ Wtf does that mean?
 Clearly, I need to learn more of the basics about using iptables.
 Cargo culting this would be a huge mistake. Also, with questions about whether
 or not I am going to lock myself out of my web server, I need to start on a
-virtual machine that I can easily blow away. This sounds like something that
-Docker is supposed to do well, so I'll be throwing some docker bits at you
-throughout this article.
+virtual machine that I can easily blow away.
 
 Anyway, I googled "iptables basic setup" and found an Ubuntu community
 documentation [help page][3] that looks right up my alley.
+
+##Up and running
+
+The Ubuntu documentation was pretty much exactly what I need. An iptables
+config that restricts all incoming connections except for HTTP(S) and SSH.
+And, it gave me all the tools I need to procede using iptables seriously.
+I'm pretty sure that I won't lock myself out of my box.
+
+For the record I went with solution #2 for persisting the iptables config
+across machine reboots. I imagine the Ubuntu package from solution #3 does
+basically the same thing. But I like the transparancy of #2.
+
+As far as ssh access goes. I am allowing it because it is already fairly
+secured through public/private key authentication.
+
+I still haven't deciphered everything from the Server Fault article. But it
+seems that I don't need it for now. I can pick these things up as they become
+necessary. I'm excited to finally have this technology under my belt.
+
+##Future work
+
+The Ubuntu documentation only talked about securing incoming connections,
+although the content seems perfectly applicable to outgoing connections.
+Securing outgoing connections can go a long way to stoping attacks if
+malicious code does ever get executed on my machines. But I'm not sure
+if this would be too cumbersome for normal operation.
