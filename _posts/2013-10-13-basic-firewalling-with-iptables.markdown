@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Firewalling with iptables"
+title: "Basic firewalling with iptables"
 date: 2013-10-13 14:53:19 -0700
 categories: linux security
 ---
