@@ -14,29 +14,25 @@
 
         <!-- Custom CSS -->
         <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/jumbotron.css">
 
     </head>
     <body>
         <div class="container">
 
             <div class="site">
-                <div class="header row">
-                    <div class="title col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        <strong><a href="/">{{ site.name }}</a></strong>
-                    </div>
-                    <div class="class-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        <ul class="list-inline pull-right">
-                            <li><a href="http://bmats.co">Bryan Matsuo</a></li>
-                            <li><a href="http://github.com/bmatsuo/">on github.com</a></li>
-                        </ul>
-                    </div>
+                <div class="header row marketing">
+                    <span class="title col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                        <h2><a href="/">{{ site.name }}</a></h2>
+                        <strong><a href="http://bmats.co">Bryan Matsuo</a></strong>
+                    </span>
                 </div>
 
-                <div class="row">
+                <div class="row marketing">
                     {{ content }}
                 </div>
 
-                <div class="footer row">
+                <div class="footer row marketing">
                     <div class="contact">
                         <p>
                         Bryan Matsuo<br/>

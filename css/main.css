@@ -1,44 +1,10 @@
-/*****************************************************************************/
-/*
-/* Common
-/*
-/*****************************************************************************/
-
-/* Global Reset */
-* {
-  margin: 0;
-  padding: 0;
-}
-
-html, body { height: 100%; }
-
-body {
-  background-color: #FFF;
-  font: 13.34px Helvetica, Arial, sans-serif;
-  font-size: small;
-  text-align: center;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-size: 100%; }
-
-h1 { margin-bottom: 1em; }
-p { margin: 1em 0; }
-
-a         { color: #00a; }
-a:hover   { color: #000; }
-a:visited { color: #5F125F; }
-
-table {
-  font-size: inherit;
-  font: 100%;
-}
 
 /*****************************************************************************/
 /*
 /* Home
 /*
 /*****************************************************************************/
+/*
 ul.posts {
   list-style-type: none;
   margin-bottom: 2em;
@@ -50,9 +16,12 @@ ul.posts li {
 
 ul.posts span {
   color: #aaa;
+  */
   /* font-family: Monaco, "Courier New", monospace; */
+  /*
   font-size: 90%;
 }
+*/
 
 /*****************************************************************************/
 /*
@@ -60,6 +29,11 @@ ul.posts span {
 /*
 /*****************************************************************************/
 
+.site .header .title h2 {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+/*
 .site {
   font-size: 115%;
   text-align: justify;
@@ -133,6 +107,7 @@ ul.posts span {
 .site .footer .rss img {
   border: 0;
 }
+*/
 
 /*****************************************************************************/
 /*
@@ -141,6 +116,7 @@ ul.posts span {
 /*****************************************************************************/
 
 /* standard */
+/*
 .post pre {
   border: 1px solid #ddd;
   background-color: #eef;
@@ -160,8 +136,10 @@ ul.posts span {
 .post pre code {
   border: none;
 }
+*/
 
 /* terminal */
+/*
 .post pre.terminal {
   border: 1px solid #000;
   background-color: #333;
@@ -171,3 +149,4 @@ ul.posts span {
 .post pre.terminal code {
   background-color: #333;
 }
+*/
