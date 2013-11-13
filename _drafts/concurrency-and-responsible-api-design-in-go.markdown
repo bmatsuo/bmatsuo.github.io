@@ -16,7 +16,7 @@ Ok. I hope you enjoyed it. It's an excellent example of how to use Go's
 concurrency primitives to serialize access to mutable state. During the Q & A,
 Ajmani admits that the concept he present is really a simplication and
 specialization of the actor model. People might say that it's weak because
-it doesn't provide all the benifits of actor systems like [Akka][]. That's
+it doesn't provide all the benifits of actor systems like [Akka][2]. That's
 OK in my opinion. Go's programming model is all about pragmatism. Build a simple
 kernel that you can expand upon, layer, or swap *as needed* to optimize your
 system. Proper error handling, which the Go language helps enforce, make these
