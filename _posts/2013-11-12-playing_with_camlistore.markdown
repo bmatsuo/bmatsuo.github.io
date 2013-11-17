@@ -27,5 +27,11 @@ convenient compared to the Git model because merge conflicts don't exist. Load
 shouldn't become a problem in a monolithic architecture because the user pool is
 just me.
 
+**Update (2013-11-16):** To clarify, the UI does not need to be served from a
+single machine. It can be a cluster behind a load balancer. Scaling should be
+fairly straight forward. It shouldn't be a problem if on EC2 and s3 is the
+primary blob store. Scaling the indexer has its issues but that's a good thing.
+The problem is localized to that service.
+
 I'm really excited to start tooling around, camli style. I'll be posting about
 my experiences in the near future
