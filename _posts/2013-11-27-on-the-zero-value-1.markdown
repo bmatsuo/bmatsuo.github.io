@@ -6,7 +6,7 @@ categories: go types zero
 ---
 ##The good, the bad, and the panic: runtime error: invalid memory address...
 
-Dave Cheney wrote a really cool article[[1][]] about the zero value in Go and
+Dave Cheney wrote a really cool [article][1] about the zero value in Go and
 showed some clever tricks for using it. The zero value is an interesting
 concept. Any type has an intrinsic notion of 'zero' and all unassigned
 variables are guaranteed to have the value 'zero'. From a low level imperitive
