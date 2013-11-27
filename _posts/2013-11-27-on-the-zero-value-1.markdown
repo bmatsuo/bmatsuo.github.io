@@ -16,10 +16,10 @@ operations easily. But the **exact** same zeroing concept applies because it is
 actually useful in practice (as demonstrated by Dave Cheney).
 
 One thing to note is that the zero value can be painful in practice. "All types
-must have a zero value." In a language that dealing with memory references
-directly the zero value of pointer is not well defined (in a mathematical
-sense, its behavior is well defined in the language specification). So the type
-system forces the pointer type to have a value that is not a pointer and has
+must have a zero value." In a language dealing with memory references directly
+the zero value of pointer is not well defined (in a mathematical sense, its
+behavior is well defined in the language specification). So the type system
+forces the pointer type to have a value that is not a pointer and has
 disasterous consequences when used as a pointer (when dereferenced). That's
 bad. Dave's nil-method-call trick surprized me. But that's also bad. That's not
 the kind of thing you want popping up on you (or not). Really the nil method
