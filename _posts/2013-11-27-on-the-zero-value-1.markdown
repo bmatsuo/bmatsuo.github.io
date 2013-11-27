@@ -47,6 +47,8 @@ completely as Go.
 
 **However**, regardless of my thoughts on nil values I do like Go. I can deal
 with invalid pointers. I've been doing it since I was a baby. The language
-itself is simple and easy to read/write for the most part.
+itself is simple and easy to read/write for the most part. Until a language
+like Rust matures more and I see where it goes I'm happy to continue writing
+Go code.
 
-[1] http://dave.cheney.net/2013/01/19/what-is-the-zero-value-and-why-is-it-useful "1"
+[1]: http://dave.cheney.net/2013/01/19/what-is-the-zero-value-and-why-is-it-useful "1"
