@@ -1,2 +1,3 @@
 name: rocket punch
 pygments: true
+markdown: kramdown
