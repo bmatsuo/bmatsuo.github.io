@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "http-timeouts-in-go"
+title: "HTTP timeouts in Go"
 date: 2014-07-21 23:30:44 -0700
 categories: go http
 ---
@@ -17,7 +17,7 @@ system in "net/http" works.
 
 Prior to Go 1.3, you couldn't find timeouts mentioned in the documentation for
 [http.Client](http://godoc.org/net/http#Client). In 1.3, a timeout was added to
-the type, but it is a single `Timeout`, representing both "open" and "read"
+the type, but it's a single `Timeout`, representing both "open" and "read"
 time.  This is probably good enough in most situations. And it's nice and
 simple compared to two timeout approaches.  It's a classic thought in my mind,
 "I don't want this to take longer than 2 seconds. Now how long should I let it
@@ -49,14 +49,14 @@ straight-forward.
 
 ###Separate HTTP client timeouts
 
-The setup for declaring timeouts in Go is the way it is because of how
-"net/http" modularizes and separates concerns. There is a function for dialing
-(opening connections), a and a function for executing a round-trip request over
-a previously dialed connection. The interface at the client's abstraction is
-very simple and convenient while still allowing for things like connection
-pooling. But the simplicity can make other things (in this case controlling
-timeouts other than wall clock time) more difficult to do correctly or
-otherwise awkward.
+The setup for declaring timeouts in Go is the way it's because of how
+"net/http" modularizes and separates concerns in the client. There is a
+function for dialing (opening connections), a and a function for executing a
+round-trip request over a previously dialed connection. The interface at the
+client's abstraction is very simple and convenient while still allowing for
+things like connection pooling. But the simplicity can make other things (in
+this case controlling timeouts other than wall clock time) more difficult to do
+correctly or otherwise awkward.
 
 {%highlight go%}
 open := time.Second
