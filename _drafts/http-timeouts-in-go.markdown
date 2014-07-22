@@ -16,13 +16,14 @@ system in "net/http" works.
 ###One timeout to rule them all
 
 Prior to Go 1.3, you couldn't find timeouts mentioned in the documentation for
-`*http.Client`. In 1.3, a timeout was added to the type, but it is a single
-`Timeout`, representing both "open" and "read" time.  This is probably good
-enough in most situations. And it's nice and simple compared to two timeout
-approaches.  It's a classic thought in my mind, "I don't want this to take
-longer than 2 seconds. Now how long should I let it connect?". In the past I've
-made arbitrary decisions how to split that 2 seconds between "open" and "read".
-Go just lumps them together the same way my brain does.
+[http.Client](http://godoc.org/net/http#Client). In 1.3, a timeout was added to
+the type, but it is a single `Timeout`, representing both "open" and "read"
+time.  This is probably good enough in most situations. And it's nice and
+simple compared to two timeout approaches.  It's a classic thought in my mind,
+"I don't want this to take longer than 2 seconds. Now how long should I let it
+connect?". In the past I've made arbitrary decisions how to split that 2
+seconds between "open" and "read".  Go just lumps them together the same way my
+brain does.
 
 OK. So I just convinced you to not give a shit about distinguishing between the
 two types of HTTP timeout, right? I hope not (though I wouldn't blame
