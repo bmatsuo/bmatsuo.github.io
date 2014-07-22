@@ -8,7 +8,7 @@ categories: go http
 
 **TL;DR** The standard Go HTTP client does not directly provide "open" and
 "read" timeouts as found in libraries for other languages.  Go 1.3 added the
-facility for implementing these types of timeouts using indirectly.  This post
+facility for implementing these types of timeouts indirectly.  This post
 describes how to implement these timeouts using
 [net.Dialer](http://godoc.org/net#Dialer) and, in general, how the timeout
 system in "net/http" works.

@@ -6,30 +6,39 @@ categories: go http
 ---
 **TL;DR** This is a simple pattern for safe reverse routes in Go without
 without code generation and without external packages.  It's restricted to URL
-paths with a single variable.  Really, the takeaway is to use http.ServeMux.
+paths with a single variable.  I wrote a
+[package](https://github.com/bmatsuo/rt).  But really, the takeaway is to use
+http.ServeMux.
 
-##Reverse routes
+##HTTP Routing and Go
 
-For this discussion, an HTTP *route* is something that can match a request path
-and extract parameters.  The *reverse* route would be able to take extracted
-parameters and create the original request path.
+There is a lot of contention around HTTP routing (and frameworks) in Go.  The
+diehards insist that "net/http" is the one true package.  While many others
+continue to invent ways of using "net/http" or masking it.
 
-##Implementation
+##What does one really need from application level routes?
 
-Routes are generally defined as a string using a succinct DSL.  There are other
-ways to do it but I won't really consider them.  I have tried implementing some
-such ways in Go and did not like the outcome.
+At the application level support for getting the suffix of a matched prefix
+should be adequate for most things.  Implementing something like GitHub's path
+strategy would be difficult.  But you can get pretty far (S3 path would be
+reasonable to implement).
 
-I also won't really consider code generation.  It's probably possible to create
-good, safe reverse routing ([revel](http://revel.github.io/) has done something
-interesting).  But I find code generation simply be overkill for the lightwight
-web servers I build.
+Reverse routing is pretty import for maintainable, easy-to-use HTTP interfaces.
+Constructing links to other resources is very convenient.  And constructing
+links using error prone techniques is no fun to deal with.
+
+## Things I don't want in routing
+
+Code generation.  Pretty simple.  For a complex system.  Sure.  You may need a
+multi-step build process or a process for checking in generate code.  But I
+want to keep things simple and `go get` friend for as long as possible.  Code
+generation is not something I want in my routing.
 
 ##Problems with reverse routes in Go packages
 
 In terms of runtime packages you basically have to deal with unsafe things and
 pass the buck onto the caller.  This is clear looking at one of the few
-packages to provide reverse routes,
+packages to even provide reverse routing (the only one I know of),
 ["github.com/gorilla/mux"](https://github.com/gorilla/mux).
 
 First of all, the [Gorilla Web Toolkit](http://www.gorillatoolkit.org) is
@@ -38,17 +47,17 @@ expect it to be the ideal implementation or anything.
 
 Gorilla acheives reverse routing through named routes and named parameters.
 Both of these things make it intrinsically error prone when used casually.
-
-You could criticize the implementation in "github.com/gorilla/mux".  But in my
-opinion there will always be some unsafe aspects to reverse routing.  The
-complexity of the reverse routing problem is too much to deal with at the
-runtime package level.
+Strings are easy to mistype and there's no way of ensuring that a string
+literal on one line of code is equal to the string literal on another line at
+compile time.  I don't think that the authors did anything wrong, per se.  They
+are coping with a language limitation.  But it's my opinion that they are doing
+it wrong.
 
 ##Roll your own reverse routes
 
-So runtime packages are not adequate to deal with the problem.  And code
-generation is out of the question.  The only option left is to implement
-reverse routing at the application level.
+So runtime packages are not adequate to deal with the problem of reverse
+routes.  And code generation is out of the question.  The only option left is
+to implement reverse routing at the application level.
 
 I hear the gopher crying out, "Oh. Fuck. No." Just hear me out.  Let's just
 make simplifying assumptions that make the problem of reverse routes tractable
@@ -185,3 +194,9 @@ that `mux.HandleFunc` is called for each field in `ShelterRoutesV1`.  I suppose
 a helper function could take `mux`, `routes`, and a `map[string]http.Handler`
 then return an error if not all fields have a http.Handler defined for their
 value. But I'm not sure that would be convenient enough to use.
+
+##Other notes
+
+I've played around with ways to describe routes without a string-based DSL.  I
+didn't like the outcome vary much (and reverse routing is hard).  I'm not
+saying it can't be done.  But I no longer think it's a good idea.
