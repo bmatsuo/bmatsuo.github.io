@@ -4,7 +4,6 @@ title: "HTTP timeouts in Go"
 date: 2014-07-21 23:30:44 -0700
 categories: go http
 ---
-##HTTP timeouts in Go 1.3
 
 **TL;DR** The standard Go HTTP client does not directly provide "open" and
 "read" timeouts as found in libraries for other languages.  Go 1.3 added the
