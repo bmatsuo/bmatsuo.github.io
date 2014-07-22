@@ -33,9 +33,9 @@ completely you).
 
 I recently ran into a case where an open timeout was actually important.
 Operating with large files on S3. For a very large file (GBs in size) there is
-no commercial network I'm aware of that could deliver the data fast enough to
-get it in seconds. Maybe crazy Range-fu funneling **lots** of requests into a
-single file could get the complete file within a reasonable wall clock time.
+no commercial backbone I'm aware of that could deliver me the data fast enough
+to get it in seconds. Maybe crazy Range-fu funneling **lots** of requests into
+a single file could get the complete file within a reasonable wall clock time.
 For this scenario assume the Range header is not supported.
 
 So, you are resigned to having a very long wall clock timeout on the request.
