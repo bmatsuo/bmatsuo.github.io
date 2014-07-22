@@ -57,7 +57,7 @@ things like connection pooling. But the simplicity can make other things (in
 this case controlling timeouts other than wall clock time) more difficult to do
 correctly or otherwise awkward.
 
-{%highlight go%}
+{% highlight go %}
 open := time.Second
 read := time.Minute
 client := &http.Client{
@@ -67,8 +67,7 @@ client := &http.Client{
     Timeout: open + read,
 }
 resp, err := client.Get("http://s3.amazonaws.com/example/path/to/some/huge/file.tar.gz")
-// ...
-{%endhighlight%}
+{% endhighlight %}
 
 The above solution comes from learning and exploiting concepts the client and
 the Go standard library provide.  Dialing is obviously the place where "open"
