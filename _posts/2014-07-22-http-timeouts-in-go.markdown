@@ -48,9 +48,9 @@ straight-forward.
 
 ###Separate HTTP client timeouts
 
-The setup for declaring timeouts in Go is the way it's because of how
+The setup for declaring timeouts in Go is the way it is because of how
 "net/http" modularizes and separates concerns in the client. There is a
-function for dialing (opening connections), a and a function for executing a
+function for dialing (opening connections), and a function for executing a
 round-trip request over a previously dialed connection. The interface at the
 client's abstraction is very simple and convenient while still allowing for
 things like connection pooling. But the simplicity can make other things (in
@@ -75,7 +75,10 @@ timeouts apply.  At this point we take a shortcut instead of implementing a
 "read" timeout directly, if it's necessary to separate timeouts and the dialer
 is explicitly specifying its timeout already, the client's wall clock `Timeout`
 field can be used to specify the read timeout (indirectly as the sum "open" +
-"read").
+"read"). This implementation of a "read" timeout is a little imprecise but
+really the problem is in the desire to have a read timeout. Separate timeouts
+mean that for any given request you are willing to suffer a wall call time of
+"open" + "read".
 
 It's worth noting that instead of using the `*net.Dialer`, a more straight
 forward dial function literal can be constructed using `net.DialTimeout`.  I
@@ -85,13 +88,11 @@ behavior. See its [godoc](http://godoc.org/net#Dialer) for details.
 ###Takeaways
 
 While not directly apparent there is a rich facility for managing the
-[http.Client](http://godoc.org/net/http) within the standard library (it's not
-only in this case; trust me). The package's design exemplifies the philosophy
-that simple, general purpose types and functions should be specialized for
-unique situations encountered everyday. The result is a highly flexible HTTP
-client that utilizes strict types and scales from the simplest use case to edge
-case (at least in this modern with with fast, 'enterprise', 'cloud' APIs
-&ast;puke&ast;).
+[http.Client](http://godoc.org/net/http) within the standard library. The
+package's design exemplifies the philosophy that simple, general purpose types
+and functions should be specialized for unique situations encountered everyday.
+The result is a highly flexible HTTP client that, utilizing interfaces, scales
+from the simplest use case to edge cases.
 
 ###And here's the package that wraps it all up
 
