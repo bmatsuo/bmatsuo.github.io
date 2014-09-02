@@ -5,12 +5,12 @@ date: 2014-09-02 03:09:17 -0700
 categories: linux docker home
 ---
 The popular devops community is definitely excited about the potential of
-Docker for service deployment and isolation.  It is a stretch for me to claim
-membership of that community.  But still, I am excited about using Docker as
-well.  In my experimentation trying to become comfortable with a Docker-based
-development cycle, which I am still not completely comfortable with, I have
-been pondering another question.  Is Docker fit for isolation and packaging in
-the Linux desktop ecosystem?
+[Docker](https://www.docker.com/) for service deployment and isolation.  It is
+a stretch for me to claim membership of that community.  But still, I am
+excited about using Docker as well.  In my experimentation trying to become
+comfortable with a Docker-based development cycle, which I am still not
+completely comfortable with, I have been pondering another question.  Is Docker
+fit for isolation and packaging in the Linux desktop ecosystem?
 
 Docker appears to be fairly easy to use with popular, modern init systems like
 [upstart and systemd](https://docs.docker.com/articles/host_integration/).  But
