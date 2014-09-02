@@ -50,10 +50,10 @@ be no way to 'link' the host to the container.  Anyway, maintaining a setup
 like this seems like a fucking nightmare.
 
 I'm not sure if docker containers can be configured to use the system DBus.  Or
-if the docker daemon exposes enough information through DBus to implement type
-of service discovery.  That may not be the right discovery model though.  I
-don't know.  Web/Socket interfaces seem more prevalent and portable these days
-to me.
+if the docker daemon exposes enough information through DBus to implement
+container-service discovery.  That may not be the right discovery model though.
+I don't know.  Web/Socket interfaces seem more prevalent and portable these
+days to me.
 
 In my mind a very natural sounding solution is to run a discover service like
 [coreos/etcd](https://github.com/coreos/etcd) or
