@@ -55,12 +55,12 @@ container-service discovery.  That may not be the right discovery model though.
 I don't know.  Web/Socket interfaces seem more prevalent and portable these
 days to me.
 
-In my mind a very natural sounding solution is to run a discover service like
+In my mind a very natural sounding solution is to run a discovery service like
 [coreos/etcd](https://github.com/coreos/etcd) or
-[hashicord/consul](https://github.com/hashicorp/consul) inside a container, in
+[hashicorp/consul](https://github.com/hashicorp/consul) inside a container, in
 the docker [host subnet](https://docs.docker.com/articles/networking/).
 Orchestrating disparate services like Syncthing and Ngninx containers can be
-handling with configuration shim like
+handled with configuration shim like
 [kelseyhightower/confd](https://github.com/kelseyhightower/confd) deployed
 alongside each service.  Future applications can be designed around services
 such as etcd and consul.  They will have no need for a shim inside the
